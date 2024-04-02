@@ -1,5 +1,7 @@
 # Todo API Server Documentation
 
+[Todo link](https://todo-server-dxrw.onrender.com/)
+
 This documentation provides an overview of the Todo server, including its endpoints and usage instructions, as well as details about the underlying database.
 
 ## Table of Contents
@@ -103,7 +105,7 @@ To set up the Todo server locally, follow these steps:
 - **Description**: Search todos based on a keyword.
 - **API**: Yes
 - **Database**: No
-- **Endpoint**: `/api/todos/apisearch`
+- **Endpoint**: `/apisearch`
 - **Query Parameters**:
   - `todo`: The keyword to search for in todo text.
 - **Response**: Returns a list of todos matching the provided keyword.
