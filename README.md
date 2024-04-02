@@ -10,10 +10,11 @@ This documentation provides an overview of the Todo server, including its endpoi
   - [Get All Todos (API)](#get-all-todos-api)
   - [Get All Todos (Database)](#get-all-todos-database)
   - [Get Todos by User ID](#get-todos-by-user-id)
-  - [Add Todo](#add-todo)
-  - [Update Todo](#update-todo)
-  - [Delete Todo](#delete-todo)
-  - [Search Todos](#search-todos)
+  - [Add Todo (Database)](#add-todo-database)
+  - [Update Todo (Database)](#update-todo-database)
+  - [Delete Todo (Database)](#delete-todo-database)
+  - [Search Todos (Database)](#search-todos-database)
+  - [API Search](#api-search)
 
 ## Introduction
 
@@ -61,7 +62,7 @@ To set up the Todo server locally, follow these steps:
   - `userId`: Specifies the user ID for filtering todo items.
 - **Response:** Returns a JSON array of filtered todo items.
 
-### Add Todo
+### Add Todo (Database)
 
 - **URL:** `/addtodo`
 - **Method:** `POST`
@@ -69,7 +70,7 @@ To set up the Todo server locally, follow these steps:
 - **Request Body:** JSON object with `todo`, `completed`, and `userId` fields.
 - **Response:** Returns the created todo item as JSON.
 
-### Update Todo
+### Update Todo (Database)
 
 - **URL:** `/updatetodo/:id`
 - **Method:** `PATCH`
@@ -79,7 +80,7 @@ To set up the Todo server locally, follow these steps:
 - **Request Body:** JSON object with `todo` and `completed` fields.
 - **Response:** Returns a success message if the todo item was updated successfully.
 
-### Delete Todo
+### Delete Todo (Database)
 
 - **URL:** `/deletetodo/:id`
 - **Method:** `DELETE`
@@ -88,7 +89,7 @@ To set up the Todo server locally, follow these steps:
   - `id`: Specifies the ID of the todo item to delete.
 - **Response:** Returns a success message if the todo item was deleted successfully.
 
-### Search Todos
+### Search Todos Database
 
 - **URL:** `/searchtodos/:keyword`
 - **Method:** `GET`
@@ -96,6 +97,16 @@ To set up the Todo server locally, follow these steps:
 - **Path Parameter:**
   - `keyword`: Specifies the keyword to search for in todo items.
 - **Response:** Returns a JSON array of matching todo items.
+
+### API Search
+
+- **Description**: Search todos based on a keyword.
+- **API**: Yes
+- **Database**: No
+- **Endpoint**: `/api/todos/apisearch`
+- **Query Parameters**:
+  - `todo`: The keyword to search for in todo text.
+- **Response**: Returns a list of todos matching the provided keyword.
 
 ## Dependencies
 
@@ -108,7 +119,7 @@ To set up the Todo server locally, follow these steps:
 
 ## Author
 
-This Todo server was developed by Abdalrhamn Aboalsoud.
+**This Todo server was developed by Abdalrhamn Aboalsoud.**
 
 ## License
 

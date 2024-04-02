@@ -165,7 +165,7 @@ function deleteTodoHandler(req, res) {
       console.error(err.stack);
     });
 }
-// search todo
+// search todo database
 app.get("/searchtodos/:keyword", searchTodosHandler);
 function searchTodosHandler(req, res) {
   const { keyword } = req.params;
@@ -183,6 +183,26 @@ function searchTodosHandler(req, res) {
       res.status(500).json({ message: "Internal server error" });
     });
 }
+
+app.get("/apisearch", (req, res) => {
+  const keyword = req.query.todo;
+  const url = `https://dummyjson.com/todos?todo=${keyword}`;
+  
+  axios.get(url)
+    .then(response => {
+      // console.log(response.data.todos);
+      let filteredTodos = response.data.todos.filter((todo) => {
+        return todo.todo.toLowerCase().includes(keyword.toLowerCase().trim());
+        // todo.todo.trim() === keyword.trim();
+      })
+      // console.log(keyword);
+      res.json(filteredTodos);
+    })
+    .catch(error => {
+      console.error(error.stack);
+      res.status(500).json({ message: "Internal server error" });
+    });
+});
 
 client
   .connect()
